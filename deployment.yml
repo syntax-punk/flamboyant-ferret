@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: monollect-react-dev
+  name: monollect-react-dev-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: react-dev-webshop
+      app: react-dev-app
   template:
     metadata:
       labels:
-        app: react-dev-webshop
+        app: react-dev-app
     spec:
       containers:
         - name: flamboyant-ferret
