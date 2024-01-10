@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monollect-react-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-dev-webshop
+  template:
+    metadata:
+      labels:
+        app: react-dev-webshop
+    spec:
+      containers:
+        - name: flamboyant-ferret
+          image: monollect/react-dev:latest
+          ports:
+            - containerPort: 3000

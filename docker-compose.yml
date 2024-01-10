@@ -1,0 +1,7 @@
+version: '3.8' # Specifies the Docker Compose version
+
+services:
+  sales-configurator:
+    image: monollect/react-dev
+    ports:
+      - '3000:3000'
