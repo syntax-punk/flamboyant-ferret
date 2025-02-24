@@ -9,7 +9,18 @@ permissions:
   contents: write
 
 jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Echo Build
+        run: echo "Building ${{ github.ref_name }}"
+
   release:
+    needs: build
     name: Release on pushed tag
     runs-on: ubuntu-latest
     steps:
