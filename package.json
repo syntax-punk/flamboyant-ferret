@@ -2,7 +2,7 @@
   "name": "flamboyant-ferret",
   "description": "A Vite + React + TypeScript project created with Vite CLI to run in the Docker as a development environment.",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "scripts": {
     "start": "npm run dev -- --port 3000 --host",
