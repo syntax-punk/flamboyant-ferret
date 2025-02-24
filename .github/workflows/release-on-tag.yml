@@ -1,0 +1,38 @@
+name: Release the Ferret on tag
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release on pushed tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up GitHub CLI
+        uses: actions/setup-gh-cli@v2
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+        run: |
+          gh release create "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${tag#v}" \
+              --generate-notes
+
+      - name: Notify success
+        if: success()
+        run: echo "Release ${{ github.ref_name }} created successfully."
+
+      - name: Notify failure
+        if: failure()
+        run: echo "Failed to create release for ${{ github.ref_name }}."
