@@ -13,3 +13,6 @@
 - Want to expose the app?
   - Run `kubectl get pods` find the pod name
   - Run `kubectl port-forward pod/<pod-name> 3000:3000` to expose the app on port 3000
+
+
+this is now serious stuff
